@@ -5,10 +5,15 @@ function guessGame() {
   let playerName = prompt("Inserez votre nom");
   do {
     guess = parseInt(prompt(text));
-    if (rightPrice < guess) {
-      text = "C'est moins!";
-    } else if (rightPrice > guess) {
-      text = "C'est plus!";
+    if (isNaN(guess) || guess < 1 || guess > 100) {
+      text = "Mauvais numero";
+    } else {
+      if (rightPrice < guess) {
+        text = "C'est moins!";
+      }
+      if (rightPrice > guess) {
+        text = "C'est plus!";
+      }
     }
   } while (guess !== rightPrice);
   alert(`${playerName} est le gagnnt`);
